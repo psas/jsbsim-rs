@@ -1,0 +1,11 @@
+[package]
+name = "jsbsim"
+version = "0.1.0"
+authors = ["waylon531 <waylon531@firechicken.net>"]
+
+[dependencies]
+cpp = "0.3"
+
+[build-dependencies]
+cpp_build = "0.3"
+pkg-config = "0.3"

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+<fdm_config version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd"
+    name="Lambda-4S-5" release="ALPHA">
+
+    <fileheader>
+      <author> Nathan Bergey </author>
+      <filecreationdate> 2016-05-15 </filecreationdate>
+      <version> 0.1 </version>
+      <description> Small low-altitude test rocket for Portland State Aerospace Society </description>
+      <note></note>
+    </fileheader>
+
+
+    <system file="GuidanceExecutive" />
+
+    <!-- Main aerodynamic properties -->
+    <metrics>
+        <wingarea   unit="M2">  0.015 </wingarea>  <!-- Cross sectional area -->
+        <wingspan   unit="M">   0.14  </wingspan>  <!-- Width of body -->
+        <chord      unit="M">   0.14  </chord>
+        <htailarea  unit="M2">  0.0   </htailarea>
+        <htailarm   unit="M">   0.0   </htailarm>
+        <vtailarea  unit="M2">  0.0   </vtailarea>
+        <vtailarm   unit="M">   0.0   </vtailarm>
+        <location name="AERORP" unit="M">
+            <x>  2.72 </x>                         <!-- Center of Pressure (M=0.3) -->
+            <y>  0    </y>
+            <z>  0    </z>
+        </location>
+    </metrics>
+
+
+    <!--########################################################################
+    Mass Balance
+    #########################################################################-->
+    <mass_balance>
+
+        <!-- Rocket Body -->
+        <ixx unit="KG*M2">    0.259  </ixx>
+        <iyy unit="KG*M2">    0.436  </iyy>
+        <izz unit="KG*M2">    0.436  </izz>
+        <ixy unit="KG*M2">    0      </ixy>
+        <ixz unit="KG*M2">    0      </ixz>
+        <iyz unit="KG*M2">    0      </iyz>
+        <emptywt unit="KG">  26.25   </emptywt>
+        <location name="CG" unit="M">
+            <x> 2.51 </x>
+            <y> 0 </y>
+            <z> 0 </z>
+        </location>
+    </mass_balance>
+
+
+    <!--########################################################################
+    Propulsion
+    #########################################################################-->
+    <propulsion>
+
+        <engine file="N2501">
+           <location unit="M">
+             <x> 2.0   </x>
+             <y>  0    </y>
+             <z>  0    </z>
+           </location>
+           <feed>0</feed>
+           <thruster file="N2501_nozzle">
+             <location unit="M">
+               <x> 3.5 </x>
+               <y> 0   </y>
+               <z> 0   </z>
+             </location>
+             <orient unit="DEG">
+                <roll> 0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+           </thruster>
+         </engine>
+
+         <tank type="FUEL">
+           <location unit="M">
+             <x> 2.5   </x>
+             <y>  0    </y>
+             <z>  0    </z>
+           </location>
+           <radius unit="M">0.092</radius>
+           <grain_config type="CYLINDRICAL">
+             <length unit="M"> 1.01 </length>
+             <bore_diameter unit="M"> 0.01 </bore_diameter>
+           </grain_config>
+           <capacity unit="KG"> 8.704 </capacity>
+           <contents unit="KG"> 8.704 </contents>
+         </tank>
+
+    </propulsion>
+
+    <!--########################################################################
+    Aero, right now a constant Coef. of drag of 0.8
+    #########################################################################-->
+    <aerodynamics>
+        <axis name="DRAG">
+            <function name="aero/coefficient/CD">
+                <description>Drag</description>
+                <product>
+                    <property>aero/qbar-psf</property>
+                    <property>metrics/Sw-sqft</property>
+                    <value>0.6</value>
+                </product>
+            </function>
+        </axis>
+    </aerodynamics>
+
+
+    <ground_reactions /><!-- Not used - hold down model keeps vehicle in place -->
+
+</fdm_config>

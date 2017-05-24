@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<nozzle name="Pro98 Phenolic Nozzle">
+  <area unit="M2"> 0.001 </area>
+  <pe unit="PSF"> 40.0  </pe>
+</nozzle>
