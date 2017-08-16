@@ -17,7 +17,7 @@
 
     <!-- Liftoff -->
     <event name="Liftoff!!">
-      <condition>sim-time-sec >= 1</condition>
+      <condition>simulation/sim-time-sec >= 1</condition>
       <set name="forces/hold-down" value="0"/>
       <set name="fcs/throttle-cmd-norm" value="1.0" action="ramp" tc ="0.5"/>
       <notify>

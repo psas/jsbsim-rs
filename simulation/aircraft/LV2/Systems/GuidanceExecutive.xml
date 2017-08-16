@@ -13,8 +13,8 @@
       <test value="guidance/executive/launch-time"> fcs/throttle-cmd-norm[0] gt 0 </test>
     </switch>
     <summer name="guidance/executive/MET">
-        <!--<input> simulation/sim-time-sec </input>
-      <input> -guidance/executive/launch-time </input>-->
+      <input> simulation/sim-time-sec </input>
+      <input> -guidance/executive/launch-time </input>
     </summer>
   </channel>
 
