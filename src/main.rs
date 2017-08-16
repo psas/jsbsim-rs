@@ -12,10 +12,10 @@ fn main() {
     unsafe {
         cpp!([] {
             JSBSim::FGFDMExec fdmex = JSBSim::FGFDMExec();
-            fdmex.SetSystemsPath("systems/");
-            fdmex.SetAircraftPath("aircraft/");
-            fdmex.SetEnginePath("engine/");
-            fdmex.LoadScript("simulation/run.xml");
+            fdmex.SetSystemsPath(SGPath("systems/"));
+            fdmex.SetAircraftPath(SGPath("aircraft/"));
+            fdmex.SetEnginePath(SGPath("engine/"));
+            fdmex.LoadScript(SGPath("simulation/run.xml"));
             int loop = 1;
             while (loop) {
                 
