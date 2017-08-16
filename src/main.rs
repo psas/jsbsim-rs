@@ -1,9 +1,6 @@
 #[macro_use]
 extern crate cpp;
 
-#[link(name="JSBSim")]
-extern {}
-
 cpp! {{
     #include <FGFDMExec.h>
     #include <models/FGAircraft.h>
